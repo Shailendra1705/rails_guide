@@ -1,4 +1,18 @@
 class Article < ApplicationRecord
+
+   #callbacks
+    after_initialize do |article|
+        puts "Object Initailized of article"
+    end
+
+    after_find do |article|
+        puts "You have found an object!"
+    end
+
+    after_create_commit :enter_article_to_db
+    after_update_commit :log_user_saved_to_db
+
+
     has_many :comments,dependent: :destroy
 
     validates :title , presence: true
@@ -17,6 +31,12 @@ class Article < ApplicationRecord
     def archived?
         status == 'archived'
     end
+
+    private
+    def enter_article_to_db
+        puts "Article saved to DB"
+    end
+    
 end
 
 # <% if @article.errors.any? %>
