@@ -1,1 +1,17 @@
-<h2>Working</h2>
+<h1>Shailendra's Article</h1>
+
+<ul>
+ <% @articles.each do |article|%>
+    <li>
+      <%= link_to article.title,article %>
+    </li>
+      <%end%>
+</ul>
+
+<%= link_to "New Article" , new_article_path%>
+
+<%# <%= link_to article.title,article %>
+
+<%# <a href="<%= article_path(article)%>
+      <%# <%=article.title%>
+      <%# </a> %>
