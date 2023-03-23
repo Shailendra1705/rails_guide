@@ -13,15 +13,15 @@ class Article < ApplicationRecord
     after_update_commit :log_user_saved_to_db
 
 
-    has_many :comments,dependent: :destroy
+    has_many :comments, dependent: :destroy
 
-    validates :title , presence: true
+    validates :title, presence: true
 
 
     
     # validate :title, presence: true, uniqueness: true, strict: TitleException
     # validates :title,presence:true,uniqueness: true, strict: TitleGenerationException
-    validates :body,presence:true , length:{minimum:10}
+    validates :body, presence: true, length: { minimum:10 }
 
 
     # VALID_STATUSES = ['public','private','archived']
