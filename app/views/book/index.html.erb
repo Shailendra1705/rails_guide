@@ -1,0 +1,21 @@
+<h1>Books are coming soon!</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Genere</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<tbody>
+    <% @book.each do |book| %>
+        <tr>
+        <td><%= book.name %></td>
+        <td><%= book.title %></td>
+        <td><%= book.genere%></td>
+        </tr>
+    <%end%>
+</tbody>
